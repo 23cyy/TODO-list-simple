@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Ma To-Do List</h1>
+  </header>
+
+  <!-- MAIN SECTION -->
+  <main>
+    <!-- Formulaire de création de tâche -->
+    <section class="add-task-section">
+      <h2>Ajouter une nouvelle tâche</h2>
+      <form id="taskForm">
+        <div class="form-group">
+          <label for="title">Titre de la tâche</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            placeholder="Ex: Faire les courses"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            placeholder="Ex: Acheter lait, œufs et pain"
+            rows="2"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Échéance (Date & Heure)</label>
+          <input
+            type="datetime-local"
+            id="dueDate"
+            name="dueDate"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn-add">Ajouter la tâche</button>
+      </form>
+    </section>
+
+    <!-- Section des tâches -->
+    <section class="tasks-section">
+      <h2>Mes Tâches</h2>
+      <ul id="taskList" class="task-list">
+        <!-- Les tâches apparaîtront ici -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- EDIT MODAL - Fenêtre modale pour modifier une tâche -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Modifier la tâche</h2>
+      <form id="editTaskForm">
+        <input type="hidden" id="editTaskId" />
+
+        <div class="form-group">
+          <label for="editTitle">Titre</label>
+          <input type="text" id="editTitle" required />
+        </div>
+
+        <div class="form-group">
+          <label for="editDescription">Description</label>
+          <textarea id="editDescription" rows="2" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="editDueDate">Échéance (Date & Heure)</label>
+          <input type="datetime-local" id="editDueDate" required/>
+        </div>
+
+        <button type="submit" class="btn-save">Enregistrer</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ALARM MODAL -->
+  <div id="alarmModal" class="alarm-modal">
+    <div class="alarm-modal-content">
+      <span id="alarmCloseBtn" class="alarm-close">&times;</span>
+      <h3 id="alarmMessage"></h3>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2022 - To-Do List App</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
